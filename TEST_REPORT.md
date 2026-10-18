@@ -83,12 +83,21 @@ itself was never modified by this check.
   instead.
 
 ## GitHub Actions
-Status: workflow added at `.github/workflows/tests.yml`, but NOT yet executed on
-GitHub. The workflow has not been triggered, so its result is unverified.
-Triggering it requires pushing to GitHub, which was not requested.
+Status: EXECUTED and PASSED.
+
+Workflow `.github/workflows/tests.yml` ran on branch `factory-foundation` at
+commit `bab6a172bb91907839c4d25b664f0403b91f547d`.
+
+- Run ID: 39103083060 (`tests`)
+- URL: https://github.com/arshadkhan66/escaping-world-ai-factory/actions/runs/39103083060
+- Overall result: completed, conclusion `success`
+- Jobs (both succeeded):
+  - `Python unit tests (3.10)` — completed, conclusion `success`
+  - `Python unit tests (3.13)` — completed, conclusion `success`
+
+Verified via the GitHub Actions API (`/actions/runs/39103083060` and its jobs).
 
 ## Not verified
-- GitHub Actions run result (workflow not yet triggered).
 - AI agent (OpenHands) access and billing status for this repository.
 - Local-model fallback on the target Android device.
 
