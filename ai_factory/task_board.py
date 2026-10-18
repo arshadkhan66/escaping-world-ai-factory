@@ -55,6 +55,16 @@ def parse_task_board(markdown: str) -> list[Task]:
     return tasks
 
 
+def tasks_in_section(tasks: list[Task], section: str) -> list[Task]:
+    """Return the tasks whose ``section`` matches ``section``.
+
+    Matching ignores surrounding whitespace and letter case. An unknown section
+    returns an empty list rather than raising, which keeps callers simple.
+    """
+    wanted = section.strip().casefold()
+    return [task for task in tasks if task.section.strip().casefold() == wanted]
+
+
 def summarize(tasks: list[Task]) -> dict[str, object]:
     """Return counts and completion ratio for ``tasks``.
 

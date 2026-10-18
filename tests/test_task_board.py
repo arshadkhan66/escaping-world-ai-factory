@@ -2,7 +2,12 @@
 
 import unittest
 
-from ai_factory.task_board import Task, parse_task_board, summarize
+from ai_factory.task_board import (
+    Task,
+    parse_task_board,
+    summarize,
+    tasks_in_section,
+)
 
 
 class ParseTaskBoardTests(unittest.TestCase):
@@ -69,6 +74,29 @@ class SummarizeTests(unittest.TestCase):
     def test_empty_list_does_not_divide_by_zero(self):
         summary = summarize([])
         self.assertEqual({"total": 0, "done": 0, "todo": 0, "ratio": 0.0}, summary)
+
+
+class TasksInSectionTests(unittest.TestCase):
+    def test_returns_only_matching_section(self):
+        board = (
+            "# Board\n\n"
+            "## Alpha\n"
+            "- [x] a1\n"
+            "- [ ] a2\n\n"
+            "## Beta\n"
+            "- [ ] b1\n"
+        )
+        tasks = tasks_in_section(parse_task_board(board), "Alpha")
+        self.assertEqual(["a1", "a2"], [t.text for t in tasks])
+
+    def test_section_name_is_case_insensitive(self):
+        board = "## Alpha\n- [ ] a1\n"
+        tasks = tasks_in_section(parse_task_board(board), "alpha")
+        self.assertEqual(1, len(tasks))
+
+    def test_unknown_section_returns_empty_list(self):
+        board = "## Alpha\n- [ ] a1\n"
+        self.assertEqual([], tasks_in_section(parse_task_board(board), "Missing"))
 
 
 if __name__ == "__main__":  # pragma: no cover
