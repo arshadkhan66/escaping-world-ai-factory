@@ -7,19 +7,22 @@ Task statuses: DONE = completed and verified; TODO = not yet completed.
 - [x] Add PROJECT_SPEC.md.
 - [x] Add HANDOFF.md.
 - [x] Add ARCHITECTURE.md.
-- [ ] Add TASKS.md and verify it appears in the repository.
-- [ ] Add DECISIONS.md.
-- [ ] Add TEST_REPORT.md.
+- [x] Add TASKS.md and verify it appears in the repository.
+- [x] Add DECISIONS.md.
+- [x] Add TEST_REPORT.md.
 
 ## Milestone 2: Testing
-- [ ] Create a minimal Python smoke-test module.
-- [ ] Create a standard-library unit test.
-- [ ] Run the test and record the actual result.
-- [ ] Fix any failures and rerun the test.
+- [x] Create a minimal Python smoke-test module.
+- [x] Create a standard-library unit test.
+- [x] Run the test and record the actual result.
+- [x] Fix any failures and rerun the test. (No failures occurred; tests were
+  rerun after the suite grew to confirm they still pass.)
 
 ## Milestone 3: Automated checks
-- [ ] Add a GitHub Actions workflow for Python tests.
+- [x] Add a GitHub Actions workflow for Python tests.
 - [ ] Check workflow permissions and applicable free usage limits.
+  (Workflow sets `permissions: contents: read`; free usage limits are not yet
+  confirmed.)
 - [ ] Trigger the workflow and inspect its actual result.
 
 ## Milestone 4: AI coding agent
